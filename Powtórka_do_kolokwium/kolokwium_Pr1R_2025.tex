@@ -1,0 +1,149 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=2cm}
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegray},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{purple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4
+}
+\lstset{style=mystyle}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large PROGRAMOWANIE 1 R \hfill KOLOKWIUM \hfill 14.04.2025}
+\end{center}
+
+\vspace{0.5cm}
+\noindent Name: [Imię, Nazwisko]
+
+\vspace{0.5cm}
+
+\noindent \textbf{1.} (2 punkty) Jaki będzie wynik wykonania poniższego kodu:
+\begin{lstlisting}[language=Python]
+t = [n for n in range(10)]
+print(t[8:])
+print(t[1:5:3])
+print(t[5:1:-3])
+\end{lstlisting}
+\textcolor{blue}{\textit{Odpowiedź:}}
+\begin{lstlisting}[language=Python, backgroundcolor=\color{white}]
+[8, 9]
+[1, 4]
+[5, 2]
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\noindent \textbf{2.} (4 punkty) Napisz jednolinijkowy, niewykorzystujący pętli ani instrukcji warunkowych kod wykonujący następujące zadania:
+
+\noindent (A) wzajemna zamiana wartości zmiennych \texttt{x} i \texttt{y}, \\
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{y, x = x, y}
+
+\vspace{0.3cm}
+\noindent (B) przypisanie do łańcucha tekstowego \texttt{t} wartości łańcucha (stringu) \texttt{s} zapisanej od tyłu, \\
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{t = s[::-1]}
+
+\vspace{0.3cm}
+\noindent (C) przypisanie do zmiennej \texttt{d} listy dzielników liczby naturalnej przechowywanej w zmiennej \texttt{n}, \\
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{d = [k for k in range(1, n+1) if n \% k == 0]}
+
+\vspace{0.3cm}
+\noindent (D) przypisanie do zmiennej \texttt{p} słownika, w którym klucze są liczbami naturalnymi podzielnymi przez 3 i mniejszymi od 25, zaś wartości - łańcuchami tekstowymi złożonymi z tylu liter \texttt{b}, ile wynosi wartość odpowiedniego klucza. \\
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{p = \{k: (k * "b") for k in range(1, 26) if k \% 3 == 0\}}
+
+\newpage
+\begin{center}
+    \textbf{\Large Programowanie 1 R \hfill Kolokwium \hfill Page 2 of 3}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent \textbf{3.} (2 punkty) Obiektami których z wymienionych typów można indeksować słowniki? (można to nie znaczy że tak się powinno robić, tylko że interpreter nie zwróci błędu): \\
+Zaznacz poprawne z odpowiedzi: \texttt{int}, \texttt{float}, \texttt{str}, \texttt{dict}, \texttt{tuple}, \texttt{function} \\
+\textcolor{blue}{\textit{Odpowiedź (zaznaczone):}} \texttt{int}, \texttt{float}, \texttt{str}, \texttt{tuple}, \texttt{function}
+
+\vspace{0.5cm}
+
+\noindent \textbf{4.} (2 punkty) Co zostanie wypisane na ekranie w wyniku wykonania następującego kodu?
+\begin{lstlisting}[language=Python]
+x = ["a", "b"]
+y = x
+y[0], y[1] = x[1], x[0]
+print(x+y)
+\end{lstlisting}
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{baba} \textit{(zapisane odręcznie w ten sposób, wynik z interpretera to \texttt{['b', 'a', 'b', 'a']})}
+
+\vspace{0.5cm}
+
+\noindent \textbf{5.} (2 punkty) Co zostanie wypisane na ekranie w wyniku wykonania następującego kodu?
+\begin{lstlisting}[language=Python]
+listA = list(filter(lambda x: (x%2 != 0), [c//2 for c in range(20)]))
+listB = list(map(lambda x: x * 2, listA))
+print(listB)
+\end{lstlisting}
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{2 2 6 6 10 10 14 14 18 18} \textit{(zapisane odręcznie w ten sposób, wynik z interpretera to \texttt{[2, 2, 6, 6, 10, 10, 14, 14, 18, 18]})}
+
+\vspace{0.5cm}
+
+\noindent \textbf{6.} (2 punkt) Jeśli dana jest lista \texttt{a} zawierająca elementy typu \texttt{str} to użycie metody \texttt{a.sort()} posortuje listę \texttt{a} w porządku "słownikowym". Jak użyć metody \texttt{a.sort()} aby posortowała ona listę w porządku rosnącej liczby liter? \\
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{a.sort(key=len)}
+
+\newpage
+\begin{center}
+    \textbf{\Large Programowanie 1 R \hfill Kolokwium \hfill Page 3 of 3}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent \textbf{7.} (2 punkty) Wskaż błąd w poniższym programie, zakładając że wynikiem ma być 549:
+\begin{lstlisting}[language=Python]
+data = [{'id': 1, 'data': 'jeden'},
+        {'id': 33, 'data': 'trzydziesci trzy'},
+        {'id': 515, 'data': 'piecset pietnascie'}]
+f = lambda x: x['id']
+l = [f for f in data]
+print(sum(l))
+\end{lstlisting}
+\textcolor{blue}{\textit{Odpowiedź (poprawka odręczna):}} Zamiast \texttt{l = [f for f in data]} powinno być \texttt{l = [f(x) for x in data]}
+
+\vspace{0.5cm}
+
+\noindent \textbf{8.} (2 punkty) Dana jest zmienna \texttt{s} typu \texttt{str} (która składa się tylko z liter tworzących słowo). Napisz fragment kodu tworzący słownik, którego klucze to litery występujące w tym słowie, a odpowiadające im wartości to liczby powtórzeń tych liter. \\
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{\{c: s.count(c) for c in set(list(s))\}}
+
+\vspace{0.5cm}
+
+\noindent \textbf{9.} (2 punkty) Co zostanie wypisane na ekranie po wykonaniu poniższego kodu?
+\begin{lstlisting}[language=Python]
+def mystery(n):
+    return [i * j for i in range(1, n) for j in range(i, n) if (i + j) % 3 == 0]
+print(mystery(5))
+\end{lstlisting}
+\textcolor{blue}{\textit{Odpowiedź:}} \texttt{[2, 8, 9]} \textit{(odręcznie przekreślone 12 i 15 na końcu)}
+
+\end{document}
