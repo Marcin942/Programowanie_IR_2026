@@ -12,4 +12,8 @@ class Character:
     def heal(self):
         self.fp += 1
     def special_attack(self, other):
-    
+        if not isinstance(other, Character):
+            return NotImplemented
+        damage = max(10 - other.armor, 0)
+        other.hp -= damage
+        return damage
